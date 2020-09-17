@@ -1,0 +1,35 @@
+# VARIÁVEIS
+@host = http://localhost:3000
+@token = Bearer e975b15aa477ee440417ea069e8ef728a22933f0
+
+# LISTA
+GET {{host}}/usuarios
+# Authorization: {{token}}
+
+###
+# INSERE
+POST {{host}}/usuarios HTTP/1.1
+content-type: application/json
+
+{    
+    "nome": "William Hartung", 
+    "email": "hartung.will@gmail.com",
+    "senha": "123456"    
+}
+
+###
+
+# ALTERA
+PATCH {{host}}/usuarios/1 
+content-type: application/json
+
+{
+    "nome": "William Hartung", 
+    "email": "william.hartung@mira.eti.br",
+    "senha": "babalu2020"    
+}
+
+###
+
+# DELETE
+DELETE {{host}}/usuarios/4 HTTP/1.1

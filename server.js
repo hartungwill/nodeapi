@@ -11,8 +11,8 @@ conexao.connect( erro => {
         
         // Cria tabela se não existir
         Tabelas.init(conexao)
-        console.log('Tabela INIT')
 
+        // Variáveis de inicialização
         const app = customExpress()
         const porta = 3000
 
