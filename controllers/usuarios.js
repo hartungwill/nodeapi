@@ -23,4 +23,10 @@ module.exports = app => {
 
         usuarioBLL.altera(id, valores, res)
     })
+
+    app.delete('/usuarios/:id', (req, res) => {
+        const id = parseInt(req.params.id)
+
+        usuarioBLL.deleta(id, res)
+    })
 }

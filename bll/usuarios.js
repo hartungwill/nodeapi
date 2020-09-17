@@ -66,7 +66,7 @@ class UsuariosBll {
     }
 
     deleta(id, res) {
-        const sql = 'DELETE FROM Atendimentos WHERE id=?'
+        const sql = 'DELETE FROM usuarios WHERE id=?'
 
         conexao.query(sql, id, (erro, resultados) => {
             if(erro) {
