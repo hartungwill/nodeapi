@@ -12,7 +12,7 @@ class Tabelas{
             if (erro) {
                 console.log(erro)
             } else {
-                console.log('Tabela Atendimentos criada')
+                console.log('Tabela Atendimentos OK')
             }
         })
     }

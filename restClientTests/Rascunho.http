@@ -1,0 +1,48 @@
+@host = http://localhost:3000
+@token = Bearer e975b15aa477ee440417ea069e8ef728a22933f0
+
+#Tipo 1
+{{host}}/atendimentos 
+
+###
+
+#Tipo 2
+POST {{host}}/atendimentos HTTP/1.1
+content-type: application/json
+
+{
+    "id": 4, 
+    "cliente": "William Hartung", 
+    "pet": "Babalu",
+    "servico": "banho",
+    "status": "agendado",
+    "observacoes": "é um chicletinho"
+}
+
+###
+
+POST {{host}}/atendimentos HTTP/1.1
+content-type: application/json
+
+{
+    "id": 5, 
+    "cliente": "Yu Narukami", 
+    "pet": "Morgana",
+    "servico": "tosa",
+    "status": "agendado",
+    "observacoes": "é um personagem de Persona 5"
+}
+
+###
+
+POST {{host}}/atendimentos HTTP/1.1
+content-type: application/json
+
+{
+    "id": 6, 
+    "cliente": "Eric Rossi", 
+    "pet": "Chico",
+    "servico": "tosa",
+    "status": "agendado",
+    "observacoes": "é o filho do Ericão"
+}

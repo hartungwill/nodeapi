@@ -1,0 +1,41 @@
+# VARIÁVEIS
+@host = http://localhost:3000
+@token = Bearer e975b15aa477ee440417ea069e8ef728a22933f0
+
+# LISTA
+GET {{host}}/atendimentos/4
+# Authorization: {{token}}
+
+###
+# INSERE
+POST {{host}}/atendimentos HTTP/1.1
+content-type: application/json
+
+{
+    "id": 4, 
+    "cliente": "William Hartung", 
+    "pet": "Babalu",
+    "servico": "banho",
+    "status": "agendado",
+    "observacoes": "é um chicletinho"
+}
+
+###
+
+# ATUALIZA
+PATCH {{host}}/atendimentos/4 
+content-type: application/json
+
+{
+    "id": 4, 
+    "cliente": "Damaris Mariano", 
+    "pet": "Babalu",
+    "servico": "banho",
+    "status": "agendado",
+    "observacoes": "é uma princesa"
+}
+
+###
+
+# DELETE
+DELETE {{host}}/atendimentos/4 HTTP/1.1
