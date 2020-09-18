@@ -1,6 +1,18 @@
 # VARIÁVEIS
 @host = http://localhost:3000
-@token = Bearer e975b15aa477ee440417ea069e8ef728a22933f0
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjAwMzkwOTA3fQ.H5EUbBFXESgblkMZv5V358yrqaPAYvPVkM9o2svGOJE
+
+###
+# LOGIN
+POST {{host}}/login
+content-type: application/json
+
+{    
+    "email": "william.hartung@mira.eti.br",
+    "senha": "babalu2020"
+}
+
+###
 
 # LISTA
 GET {{host}}/usuarios
@@ -32,4 +44,5 @@ content-type: application/json
 ###
 
 # DELETE
-DELETE {{host}}/usuarios/2 HTTP/1.1
+DELETE {{host}}/usuarios/4 HTTP/1.1
+Authorization: {{token}}

@@ -4,6 +4,7 @@ const custoHash = 12
 
 class UsuariosBll {
 
+    
     async adiciona(usuario, res) {
         
         gerarSenhaHash(usuario.senha).then(function(senhaHash) {
@@ -38,13 +39,28 @@ class UsuariosBll {
 
         conexao.query(sql, (erro, resultados) => {
             const usuario = resultados[0]
-            if(erro) {
+            if (erro) {
                 res.status(400).json(erro)
             } else if (!usuario) {
                 res.status(204).json()
             } else {
                 res.status(200).json(usuario)
             }
+        })
+    }
+
+    buscaPorIdAsync(id) {
+        return new Promise( (resolve,reject) => {
+            const sql = `SELECT * FROM usuarios WHERE id=${id}`
+
+            conexao.query(sql, (erro, resultados) => {
+                const usuario = resultados[0]
+                if (erro) {
+                    reject(erro)
+                } else {
+                    resolve(usuario)
+                }
+            })
         })
     }
 
@@ -77,10 +93,25 @@ class UsuariosBll {
         })
     }
 
+    async buscaPorEmail(email) {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM usuarios WHERE email="${email}"`
+    
+            conexao.query(sql, (erro, resultados) => {
+                const usuario = resultados[0]
+                
+                if (erro) {
+                    reject(erro)
+                } else {
+                    resolve(usuario)
+                }
+            })
+        })
+    }
 }
 
 function gerarSenhaHash(senha) {
-    return new Promise(function(resolve, reject) {        
+    return new Promise( function (resolve, reject) {        
         bcrypt.hash(senha, custoHash).then((senhaHash) => {
             resolve(senhaHash)
         });

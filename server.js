@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const customExpress = require('./config/customExpress')
 const conexao = require('./dao/conexao')
 const Tabelas = require('./dao/tabelas')
