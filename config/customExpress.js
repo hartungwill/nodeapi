@@ -1,11 +1,10 @@
 const express = require('express')
 const consign = require('consign')
 const bodyParser = require('body-parser')
-// const { estrategiasAutenticacao } = require('./estrategias-autenticacao');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
 const BearerStrategy = require('passport-http-bearer').Strategy
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
 const Usuario = require('../bll/usuarios');
@@ -18,11 +17,13 @@ module.exports = () => {
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({ extended: true }))
 
-    // config do consign (helper de rotas)
+    // config do consign (gerenciador de rotas)
     consign()
     .include('controllers')
     .into(app)
 
+    // config do passport (gerenciador de autenticação)
+    // login
     passport.use(
         new LocalStrategy (
           {
@@ -47,6 +48,7 @@ module.exports = () => {
         )
       );
 
+    // cada requisição
     passport.use(
         new BearerStrategy(
             async (token, done) => {

@@ -23,6 +23,7 @@ class UsuariosBll {
     }
 
     lista(res) {
+        console.log('bll')
         const sql = 'SELECT * FROM usuarios'
 
         conexao.query(sql, (erro, resultados) => {

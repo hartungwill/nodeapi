@@ -1,10 +1,10 @@
 # VARIÁVEIS
 @host = http://localhost:3000
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjAwMzkwOTA3fQ.H5EUbBFXESgblkMZv5V358yrqaPAYvPVkM9o2svGOJE
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjAxMTY2MDI5fQ.bXIYbnM2g07oCAXsZDECDfPq3uOH7ZW1d055pZR4wtc
 
 ###
 # LOGIN
-POST {{host}}/login
+POST http://localhost:3000/login
 content-type: application/json
 
 {    
@@ -13,36 +13,49 @@ content-type: application/json
 }
 
 ###
+###
 
+###
 # LISTA
 GET {{host}}/usuarios
+Authorization: {{token}}
 # Authorization: {{token}}
+
+###
+###
 
 ###
 # INSERE
 POST {{host}}/usuarios HTTP/1.1
+Authorization: {{token}}
 content-type: application/json
 
 {    
-    "nome": "Damaris Mariano", 
-    "email": "damaris@portadosolturismo.com.br",
-    "senha": "admin"    
+    "nome": "William Hartung 3", 
+    "email": "hartung.weebs@gmail.com",
+    "senha": "123456"    
 }
 
 ###
+###
 
+###
 # ALTERA
-PATCH {{host}}/usuarios/1 
+PATCH {{host}}/usuarios/9
+Authorization: {{token}}
 content-type: application/json
 
 {
-    "nome": "William Hartung", 
-    "email": "william.hartung@mira.eti.br",
+    "nome": "ERROR", 
+    "email": "err.weebz2@mira.eti.br",
     "senha": "babalu2020"    
 }
 
 ###
+###
 
+###
 # DELETE
-DELETE {{host}}/usuarios/4 HTTP/1.1
+DELETE {{host}}/usuarios/9 HTTP/1.1
 Authorization: {{token}}
+###
