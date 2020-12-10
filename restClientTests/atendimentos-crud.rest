@@ -7,7 +7,7 @@ POST http://localhost:3000/login
 content-type: application/json
 
 {    
-    "email": "william.hartung@mira.eti.br",
+    "email": "hartung.will@gmail.com",
     "senha": "babalu2020"
 }
 
